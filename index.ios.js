@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import { Button } from 'antd-mobile-rn';
 
+
 var GPS = {
     PI : 3.14159265358979324,
     x_pi : 3.14159265358979324 * 3000.0 / 180.0,
@@ -91,6 +92,11 @@ export default class TestMap2 extends Component {
 
 
     getPositions=()=>{
+
+
+
+
+
         return new Promise(() => {
             /** 获取当前位置信息 */
             navigator.geolocation.getCurrentPosition(
@@ -101,6 +107,7 @@ export default class TestMap2 extends Component {
                     });
                     //通过调用高德地图逆地理接口，传入经纬度获取位置信息
                     //`https://restapi.amap.com/v3/geocode/geo?key=7ac979dc2d03edcfba300ed3b34f6e98&location=${this.state.longitude},${this.state.latitude}&radius=1000&extensions=all&batch=false&roadlevel=0`
+                   // https://restapi.amap.com/v3/geocode/regeo?key=6242e86bdd67a603ef5cf7e47dad6b29&location=113.915690,22.534607&poitype=住宅&radius=1000&extensions=all&batch=false&roadlevel=0
                     fetch(`https://restapi.amap.com/v3/geocode/regeo?key=6242e86bdd67a603ef5cf7e47dad6b29&location=113.915690,22.534607&poitype=住宅&radius=1000&extensions=all&batch=false&roadlevel=0`,
                         {
                             method: "GET",
@@ -113,7 +120,8 @@ export default class TestMap2 extends Component {
                         .then((jsonData) => {
                             try {
                                 this.setState({
-                                    position:jsonData.regeocode.formatted_address,
+                                    // position:jsonData.regeocode.formatted_address,
+                                    position:jsonData.name,
                                     // position:jsonData.street,
                                     // position: jsonData[0],
                                 });
@@ -141,12 +149,22 @@ export default class TestMap2 extends Component {
             <View style={styles.container}>
                 <WebView bounces={false}
                          scalesPageToFit={true}
-                         source={{uri:"https://lbs.amap.com/fn/iframe/?id=879",method: 'GET'}}
+                        // https://lbs.amap.com/fn/iframe/?id=879
+                        //  source={{uri:"https://m.amap.com/picker/?keywords=写字楼,小区,学校&zoom=15&center=113.915690,22.534607&radius=1000&total=20&key=6242e86bdd67a603ef5cf7e47dad6b29",method: 'GET'}}
+                        //  source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=https://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
+
+                         source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=https://github.com&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
                          style={{width:deviceWidth, height:deviceHeight}}>
                 </WebView>
-                <Text style={styles.instructions}>经度：{this.state.longitude}</Text>
-                <Text style={styles.instructions}>纬度：{this.state.latitude}</Text>
-                <Text style={styles.instructions}>当前位置：{this.state.position}</Text>
+
+                {/*<iframe id="mapPage" width="100%" height="100%" frameBorder={0}*/}
+                        {/*src="https://apis.map.qq.com/tools/locpicker?search=1&type=0&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2">*/}
+                {/*</iframe>*/}
+
+
+                {/*<Text style={styles.instructions}>经度：{this.state.longitude}</Text>*/}
+                {/*<Text style={styles.instructions}>纬度：{this.state.latitude}</Text>*/}
+                {/*<Text style={styles.instructions}>当前位置：{this.state.position}</Text>*/}
             </View>
         );
     }
