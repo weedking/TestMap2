@@ -155,7 +155,7 @@ export default class TestMap2 extends Component {
 
                          // source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&total=10&type=0&backurl=https://github.com&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
                          //https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap
-                         source={{uri:"https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp",method: 'GET'}}
+                         source={{uri:"https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=myapp",method: 'GET'}}
 
 
                          style={{width:deviceWidth, height:deviceHeight}}>
