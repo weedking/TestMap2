@@ -6,10 +6,12 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Dimensions,
+    Text,
+    View,
+    WebView
 } from 'react-native';
 import { Button } from 'antd-mobile-rn';
 
@@ -66,6 +68,11 @@ var GPS = {
     }
 }
 
+//获取设备的宽度和高度
+var {
+    height: deviceHeight,
+    width: deviceWidth
+} = Dimensions.get('window');
 
 export default class TestMap2 extends Component {
     constructor(props) {
@@ -96,12 +103,12 @@ export default class TestMap2 extends Component {
                     //`https://restapi.amap.com/v3/geocode/geo?key=7ac979dc2d03edcfba300ed3b34f6e98&location=${this.state.longitude},${this.state.latitude}&radius=1000&extensions=all&batch=false&roadlevel=0`
                     fetch(`https://restapi.amap.com/v3/geocode/regeo?key=6242e86bdd67a603ef5cf7e47dad6b29&location=113.915690,22.534607&poitype=住宅&radius=1000&extensions=all&batch=false&roadlevel=0`,
                         {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded"
-                        },
-                        body: ``
-                    })
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            body: ``
+                        })
                         .then((response) => response.json())
                         .then((jsonData) => {
                             try {
@@ -132,6 +139,11 @@ export default class TestMap2 extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <WebView bounces={false}
+                         scalesPageToFit={true}
+                         source={{uri:"https://lbs.amap.com/fn/iframe/?id=879",method: 'GET'}}
+                         style={{width:deviceWidth, height:deviceHeight}}>
+                </WebView>
                 <Text style={styles.instructions}>经度：{this.state.longitude}</Text>
                 <Text style={styles.instructions}>纬度：{this.state.latitude}</Text>
                 <Text style={styles.instructions}>当前位置：{this.state.position}</Text>
@@ -141,30 +153,30 @@ export default class TestMap2 extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  item:{
-    margin:15,
-    height:30,
-    borderWidth:1,
-    padding:6,
-    borderColor:'#ddd',
-    textAlign:'center'
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+    item:{
+        margin:15,
+        height:30,
+        borderWidth:1,
+        padding:6,
+        borderColor:'#ddd',
+        textAlign:'center'
+    },
 });
 
 AppRegistry.registerComponent('TestMap2', () => TestMap2);
