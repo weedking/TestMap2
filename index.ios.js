@@ -153,7 +153,11 @@ export default class TestMap2 extends Component {
                         //  source={{uri:"https://m.amap.com/picker/?keywords=写字楼,小区,学校&zoom=15&center=113.915690,22.534607&radius=1000&total=20&key=6242e86bdd67a603ef5cf7e47dad6b29",method: 'GET'}}
                         //  source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=https://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
 
-                         source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=https://github.com&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
+                         // source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&total=10&type=0&backurl=https://github.com&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
+                         //https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap
+                         source={{uri:"https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp",method: 'GET'}}
+
+
                          style={{width:deviceWidth, height:deviceHeight}}>
                 </WebView>
 
