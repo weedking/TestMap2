@@ -15,6 +15,8 @@ import {
 } from 'react-native';
 import { Button } from 'antd-mobile-rn';
 
+import WebViewScreen from './WebViewScreen';
+
 
 var GPS = {
     PI : 3.14159265358979324,
@@ -82,6 +84,7 @@ export default class TestMap2 extends Component {
             longitude:'',//经度
             latitude:'',//纬度
             position:'深圳1',//位置名称
+            curUrl:''
         };
     }
 
@@ -92,10 +95,6 @@ export default class TestMap2 extends Component {
 
 
     getPositions=()=>{
-
-
-
-
 
         return new Promise(() => {
             /** 获取当前位置信息 */
@@ -120,8 +119,8 @@ export default class TestMap2 extends Component {
                         .then((jsonData) => {
                             try {
                                 this.setState({
-                                    // position:jsonData.regeocode.formatted_address,
-                                    position:jsonData.name,
+                                    position:jsonData.regeocode.formatted_address,
+                                    // position:jsonData.poiaddress,
                                     // position:jsonData.street,
                                     // position: jsonData[0],
                                 });
@@ -143,32 +142,36 @@ export default class TestMap2 extends Component {
         })
     }
 
+    onNavigationStateChange(navState) {
+        console.log(navState.url);
+        this.setState({
+            curUrl:decodeURI(navState.url)
+        })
+        // this.curUrl = navState.url;
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <WebView bounces={false}
                          scalesPageToFit={true}
-                        // https://lbs.amap.com/fn/iframe/?id=879
-                        //  source={{uri:"https://m.amap.com/picker/?keywords=写字楼,小区,学校&zoom=15&center=113.915690,22.534607&radius=1000&total=20&key=6242e86bdd67a603ef5cf7e47dad6b29",method: 'GET'}}
-                        //  source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=https://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
-
-                         // source={{uri:"https://apis.map.qq.com/tools/locpicker?search=1&total=10&type=0&backurl=https://github.com&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2",method: 'GET'}}
+                         // https://www.cnblogs.com
                          //https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap
-                         source={{uri:"https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=http://3gimg.qq.com/lightmap/components/locationPicker2/back.html&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=myapp",method: 'GET'}}
-
+                         // onNavigationStateChange={(event)=>{console.log(event)}}
+                         onNavigationStateChange={this.onNavigationStateChange.bind(this)}
+                          source={{uri:"https://3gimg.qq.com/lightmap/components/locationPicker2/index.html?search=1&type=0&backurl=https://www.cnblogs.com&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=myapp",method: 'GET'}}
 
                          style={{width:deviceWidth, height:deviceHeight}}>
+
+                    {/*<WebViewScreen />*/}
                 </WebView>
 
-                {/*<iframe id="mapPage" width="100%" height="100%" frameBorder={0}*/}
-                        {/*src="https://apis.map.qq.com/tools/locpicker?search=1&type=0&key=N33BZ-GICKI-AQBGN-5X72V-ZAT2S-67B3D&referer=TestMap2">*/}
-                {/*</iframe>*/}
+
 
 
                 {/*<Text style={styles.instructions}>经度：{this.state.longitude}</Text>*/}
                 {/*<Text style={styles.instructions}>纬度：{this.state.latitude}</Text>*/}
-                {/*<Text style={styles.instructions}>当前位置：{this.state.position}</Text>*/}
+                <Text style={styles.instructions}>当前位置：{this.state.curUrl}</Text>
             </View>
         );
     }
