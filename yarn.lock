@@ -2292,7 +2292,7 @@ escape-html@~1.0.3:
   resolved "https://registry.npm.taobao.org/escape-html/download/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
-escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
+escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fescape-string-regexp%2Fdownload%2Fescape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
@@ -3030,7 +3030,7 @@ inquirer@^0.12.0:
     strip-ansi "^3.0.0"
     through "^2.3.6"
 
-invariant@2.2.4, invariant@^2.2.2, invariant@^2.2.4:
+invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha1-YQ88ksk1nOHbYW5TgAjSP/NRWOY=
@@ -5176,14 +5176,6 @@ react-native-swipeout@^2.2.2:
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
 
-react-native-webview@^5.10.0:
-  version "5.10.0"
-  resolved "https://registry.npm.taobao.org/react-native-webview/download/react-native-webview-5.10.0.tgz#01783e77a0724c74cc6d405d7d36f2da3bd9c11c"
-  integrity sha1-AXg+d6ByTHTMbUBdfTby2jvZwRw=
-  dependencies:
-    escape-string-regexp "1.0.5"
-    invariant "2.2.4"
-
 react-native@0.44.3:
   version "0.44.3"
   resolved "https://registry.npm.taobao.org/react-native/download/react-native-0.44.3.tgz#04550e1cdfc619a712f3f5969d68cd7c2dc4c073"
@@ -6263,9 +6255,9 @@ time-stamp@^1.0.0:
   integrity sha1-dkpaEa9QVhkhsTPztE5hhofg9cM=
 
 tmpl@1.0.x:
-  version "1.0.4"
-  resolved "https://registry.npm.taobao.org/tmpl/download/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
-  integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+  integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
 
 to-fast-properties@^1.0.3:
   version "1.0.3"
